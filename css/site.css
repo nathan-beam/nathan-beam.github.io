@@ -1,0 +1,15 @@
+body{
+    background-color: #EAE7DC;
+}
+
+.headshot {
+    max-height: 50vh;
+    max-width: 50vh;
+    margin-top: 15vh;
+}
+
+.header{
+    background-color: #EAE7DC;
+    color: #8E8D8A;
+    text-align: center;
+}
