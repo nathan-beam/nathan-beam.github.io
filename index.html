@@ -15,47 +15,61 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <script>
+        function iconFlyin() {
+            for (i = 0; i < 6; i++) {
+                (function(i) {
+                    setTimeout(function(){ 
+                        var element = document.getElementById(i);
+                        element.classList.add();
+                        var className = (i > 2) ? "w3-animate-right" : "w3-animate-left";
+                        element.classList.replace("d-none", className)
+                    }, i*200);
+              })(i);
+            } 
+        }
+    </script>
 </head>
 
-<body>
+<body onload="iconFlyin()">
     <div class=" header">
         <h1>Nathan Beam</h1>
     </div>
     <div class="content">
-        <div class="item ">
-            Linkedin
+        <div class="item w3-container"> 
+            <a href="https://www.linkedin.com/in/nbeam/" id="0" class="d-none"><img src="img/linkedin.png" alt="Linkedin icon" class="icon"></a>
         </div>
-        <div class="item  ">
+        <div class="item w3-container ">
             
         </div>
-        <div class="item ">
-            Github
+        <div class="item w3-container">
+            <a href="https://github.com/nathan-beam" id="5" class="d-none"><img src="img/github.png" alt="Github icon" class="icon"></a>
         </div>
     </div>
     <div class="content">
-        <div class="item twenty-five">
-            Resume
+        <div class="item w3-container twenty-five">
+            <a href="files/NathanBeamResume.pdf" id="1" class="d-none"><img src="img/resume.png" alt="Resume" class="icon"></a>
         </div>
-        <div class="item image-row ">
+        <div class="item w3-container image-row ">
             <img src="img/headshot.jpg" alt="Nathan Beam Headshot" class="headshot">
         </div>
-        <div class="item twenty-five">
-            Masstagger
+        <div class="item w3-container twenty-five">
+            <a href="https://masstagger.com/" id="4" class="d-none"><img src="img/masstagger.png" alt="Masstagger icon" class="icon "></a>
         </div>
     </div>
     <div class="content">
-        <div class="item ">
-            About
+        <div class="item w3-container">
+            <a href="https://twitter.com/beam_nathan/" id="2" class="d-none"><img src="img/twitter.png" alt="Twitter icon" class="icon"></a>
         </div>
-        <div class="item  ">
+        <div class="item w3-container ">
             
         </div>
-        <div class="item ">
-            Email
+        <div class="item w3-container">
+            <a href="mailto:nathan.w.beam@gmail.com" id="3" class="d-none"><img src="img/email.png" alt="Email me!" class="icon"></a>
         </div>
     </div>
     <div class="content">

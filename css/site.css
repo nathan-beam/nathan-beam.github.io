@@ -9,6 +9,7 @@ body{
 .headshot {
     max-height: 50vh;
     max-width: 50vw;
+    border-radius: 10px;
 }
 
 .header{
@@ -22,6 +23,7 @@ body{
 
 .header>h1{
     font-size: 3em;
+    font-weight: bold;
 }
 .item {
     width: 33%;
@@ -52,6 +54,13 @@ body{
       text-align: center;
   }
 
+  .icon{
+    height: 100px;
+  }
+
+  .d-none{
+    display: none;
+  }
   @media only screen and (max-width: 750px) {
     .about {
         width: 100%;    
