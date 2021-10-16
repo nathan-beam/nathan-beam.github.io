@@ -21,16 +21,9 @@
         crossorigin="anonymous"></script>
     <script>
         function iconFlyin() {
-            for (i = 0; i < 6; i++) {
-                (function(i) {
-                    setTimeout(function(){ 
-                        var element = document.getElementById(i);
-                        element.classList.add();
-                        var className = (i > 2) ? "w3-animate-right" : "w3-animate-left";
-                        element.classList.replace("d-none", className)
-                    }, i*200);
-              })(i);
-            } 
+            for (var i = 0; i < 3; i++) {
+  setTimeout(function() { alert(i); }, 1000 + i);
+}
         }
     </script>
 </head>
@@ -73,9 +66,9 @@
         </div>
     </div>
     <div class="content">
-        <h4 class="about">Hi! I'm Nathan Beam. I'm a software engineer with several years' experience writing responsive, data-centric apps in Angular, ASP .NET, and Javascript! I have experience with 
-           RESTful APIs, enterprise-scale desktop and web applications, and Agile workflows. I am SAFe Agile certified, and strive to implement Agile best practices such as Test-driven Development
-           and rapid iteration. I hope you enjoy the website, and feel free to reach out with any questions you may have!
+        <h4 class="about">Hi! I'm Nathan Beam. I'm a software engineer with several years' experience writing responsive, data-centric apps in React, Angular, ASP .NET, Ruby on Rails and Python! I have 
+           experience with RESTful APIs, enterprise-scale desktop and web applications, and Agile workflows. I have also spearheaded major internal modernization initiatives around Docker, Kubernetes and AWS services,
+           and strive to implement Agile best practices such as Test-Driven Development and rapid iteration everywhere I go. I hope you enjoy the website, and feel free to reach out with any questions you may have!
         </h4>
     </div>
 </body>
