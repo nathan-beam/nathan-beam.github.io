@@ -21,9 +21,16 @@
         crossorigin="anonymous"></script>
     <script>
         function iconFlyin() {
-            for (var i = 0; i < 3; i++) {
-  setTimeout(function() { alert(i); }, 1000 + i);
-}
+            for (i = 0; i < 6; i++) {
+                (function(i) {
+                    setTimeout(function(){ 
+                        var element = document.getElementById(i);
+                        element.classList.add();
+                        var className = (i > 2) ? "w3-animate-right" : "w3-animate-left";
+                        element.classList.replace("d-none", className)
+                    }, i*200);
+              })(i);
+            } 
         }
     </script>
 </head>
