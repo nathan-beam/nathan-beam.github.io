@@ -15,16 +15,21 @@ body{
 .header{
     background-color: #EAE7DC;
     color: #8E8D8A;
-    text-align: center;
     width: 100%;
     margin-left: 0 !important;
     height: 10%;
+    display: flex;
 }
 
 .header>h1{
     font-size: 3em;
     font-weight: bold;
+    padding-left: 15%;
+    display: inline-block;
+    align-self: flex-end;
+    margin-bottom: -5px;
 }
+
 .item {
     width: 33%;
     height: 100px;
@@ -63,12 +68,12 @@ body{
   }
   @media only screen and (max-width: 750px) {
     .about {
-        width: 100%;    
+        width: 100%;
     }
   }
 
   @media only screen and (min-width: 751px) {
     .about {
-        width: 70%;    
+        width: 70%;
     }
   }
