@@ -1,0 +1,8 @@
+<ul class="links">
+  <li><a href="mailto:{{ site.Params.email }}">Email</a></li>
+  <li><a href="{{ site.Params.linkedin }}" rel="me">LinkedIn</a></li>
+  <li><a href="{{ site.Params.github }}" rel="me">GitHub</a></li>
+  {{- with site.GetPage "/writing" }}{{ with .OutputFormats.Get "rss" }}
+  <li><a href="{{ .RelPermalink }}">RSS</a></li>
+  {{- end }}{{ end }}
+</ul>

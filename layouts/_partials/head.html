@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := cond .IsHome (printf "%s | %s" site.Title site.Params.role) (printf "%s | %s" .Title site.Title) }}
+{{- $description := .Description | default (cond .IsPage (.Summary | plainify) site.Params.description) | default site.Params.description | truncate 160 }}
+{{- $headshot := (resources.Get "images/headshot.png").Resize "600x600 jpg q90" }}
+{{- $social := (resources.Get "images/portrait-wide.png").Crop "1200x630 jpg q88 Top" }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="theme-color" content="#f2f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1511" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f5d3a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23fff'%3ENB%3C/text%3E%3C/svg%3E">
+
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $social.Permalink }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="{{ cond (eq .Section "writing" | and .IsPage) "article" "website" }}">
+<meta name="twitter:card" content="summary_large_image">
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+{{- $css := slice (resources.Get "css/main.css") (resources.Get "css/syntax.css") | resources.Concat "css/site.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{- if .IsHome }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Title
+  "jobTitle" site.Params.role
+  "url" site.BaseURL
+  "image" $headshot.Permalink
+  "worksFor" (dict "@type" "Organization" "name" site.Params.company)
+  "sameAs" (slice site.Params.linkedin site.Params.github)
+  | jsonify | safeJS }}
+</script>
+{{- else if and .IsPage (eq .Section "writing") }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" $description
+  "datePublished" (.Date.Format "2006-01-02")
+  "dateModified" (.Lastmod.Format "2006-01-02")
+  "url" .Permalink
+  "author" (dict "@type" "Person" "name" site.Title "url" site.BaseURL)
+  | jsonify | safeJS }}
+</script>
+{{- end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article class="wrap wrap--narrow page">
+  <header class="page__header">
+    <h1>{{ .Title }}</h1>
+    {{- if eq .Section "writing" }}
+    <p class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      &middot; {{ .ReadingTime }} min read
+    </p>
+    {{- with .GetTerms "tags" }}
+    <ul class="tags">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+    {{- end }}
+    {{- end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  {{- if and (eq .Section "writing") (or .PrevInSection .NextInSection) }}
+  <nav class="post-nav" aria-label="More posts">
+    {{- with .PrevInSection }}<a href="{{ .RelPermalink }}">Newer: {{ .Title }}</a>{{ end }}
+    {{- with .NextInSection }}<a href="{{ .RelPermalink }}">Older: {{ .Title }}</a>{{ end }}
+  </nav>
+  {{- end }}
+</article>
+{{ end }}

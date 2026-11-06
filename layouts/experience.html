@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{- $resume := hugo.Data.experience }}
+<div class="wrap wrap--narrow page resume">
+  <header class="page__header">
+    <h1>{{ .Title }}</h1>
+    <div class="lead">{{ .Content }}</div>
+  </header>
+
+  <section aria-labelledby="roles">
+    <h2 id="roles" class="section__title">Roles</h2>
+    {{- range $resume.companies }}
+    <article class="company">
+      <h3 class="company__name">{{ .name }}</h3>
+      {{- range .positions }}
+      <div class="position">
+        <p class="position__title">{{ .title }} <span>{{ .dates }}</span></p>
+        {{- with .summary }}<p>{{ . }}</p>{{ end }}
+        {{- with .highlights }}
+        <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{- end }}
+      </div>
+      {{- end }}
+    </article>
+    {{- end }}
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills" class="section__title">Skills</h2>
+    <dl class="skills">
+      {{- range $resume.skills }}
+      <dt>{{ .group }}</dt>
+      <dd>{{ delimit .items ", " }}</dd>
+      {{- end }}
+    </dl>
+  </section>
+
+  {{- range slice "education" "community" }}
+  <section aria-labelledby="{{ . }}">
+    <h2 id="{{ . }}" class="section__title">{{ . | title }}</h2>
+    {{- range index $resume . }}
+    <div class="position">
+      <p class="position__title">{{ .title }} <span>{{ .dates }}</span></p>
+      <p>{{ .detail }}</p>
+    </div>
+    {{- end }}
+  </section>
+  {{- end }}
+</div>
+{{ end }}

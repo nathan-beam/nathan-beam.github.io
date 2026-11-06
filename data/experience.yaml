@@ -1,0 +1,108 @@
+companies:
+  - name: Forward Financing
+    positions:
+      - title: Staff Applied AI Engineer
+        dates: Dec 2025 – Present
+        summary: >-
+          Selected to launch the company's zero-to-one Applied AI initiative. Helped
+          hire and form a four-engineer team to bring generative AI into a fintech
+          product suite.
+        highlights:
+          - Helped recruit the team, define the technical stack, and set the first
+            roadmap for AI prototyping.
+          - Built and shipped an LLM agent for collections contact discovery, from
+            architecture to production, with tracing, output safety filters, and PII
+            scrubbing.
+          - Stood up Temporal as the team's shared orchestration platform for durable,
+            retryable agent workflows.
+          - Scoped a bank statement automation program and built the production
+            workflows for its OCR and repayment-classification agents.
+      - title: Staff Software Engineer
+        dates: Feb 2024 – Dec 2025
+        summary: >-
+          Technical lead on Data Engineering, delivering fast, scalable pipelines for
+          machine learning and analytics.
+        highlights:
+          - Built a streaming data pipeline for small business financing with the
+            Analytics department.
+          - Eliminated over $180,000 in annual maintenance spend and enabled real-time
+            machine learning.
+          - Cut cost per application by more than 30% with OCR and automated
+            decisioning.
+          - Aligned executive stakeholders on requirements and delivery.
+          - As President of the Developer Experience Guild, drove a 20 to 40%
+            improvement in DORA metrics by improving the developer environment and
+            SDLC.
+      - title: Senior Software Engineer
+        dates: Dec 2021 – Feb 2024
+        summary: >-
+          Built real-time pipelines that feed machine learning models, using Python,
+          Amazon SageMaker, and Node.js. Earlier, served on the Digital Security and
+          Compliance team across Rails, React, Elixir, and Go microservices.
+        highlights:
+          - Enabled over $4M in revenue by partnering with Legal on regulatory
+            requirements.
+          - Audited application security with open-source tooling and enforced secure
+            coding practices across engineering.
+
+  - name: Get More Math! (Front Porch)
+    positions:
+      - title: Full-Stack Developer
+        dates: Apr 2020 – Dec 2021
+        summary: >-
+          Built a cloud SaaS platform for math instruction on React, with a Rails
+          rewrite of legacy APIs.
+        highlights:
+          - Rewrote the Python load testing system from the ground up with
+            self-generating code and weighted paths. Cut maintenance costs 90% and
+            brought simulated traffic within two standard deviations of real traffic.
+          - Moved the codebase to a fully containerized Docker environment on AWS,
+            Kubernetes, and Azure CI/CD. Cut deploy time 20%.
+
+  - name: FIS
+    positions:
+      - title: Software Engineer II
+        dates: Jan 2018 – Apr 2020
+        summary: >-
+          Modernized a legacy C++ bank teller terminal with ASP.NET and Angular.
+        highlights:
+          - Co-led a $10M rewrite project and managed junior developers and interns.
+          - Built front and back end in C#, Angular, and TypeScript, plus C++/CLI
+            interop with legacy C++ code.
+
+  - name: Eagle Advantage Solutions
+    positions:
+      - title: Software Engineer
+        dates: Feb 2017 – Dec 2017
+        summary: >-
+          Modernized a Silverlight jail management system with ASP.NET MVC.
+        highlights:
+          - Cut hardware costs 40% with a custom hardware API in C++/CLI.
+
+skills:
+  - group: AI
+    items: [LLM agents, LangGraph, LangChain, RAG, AWS Bedrock, Temporal, Evals, Amazon SageMaker]
+  - group: Languages
+    items: [Python, TypeScript, Ruby, Go, SQL, Elixir, C#]
+  - group: Frameworks
+    items: [React, Angular, Django, Rails, Phoenix, ASP.NET]
+  - group: Platforms
+    items: [AWS, Docker, Kubernetes, PostgreSQL, Kafka, Snowflake, OpenTelemetry, Datadog]
+
+education:
+  - title: University of West Georgia, B.S. Computer Science
+    dates: 2017
+    detail: >-
+      Magna Cum Laude. Presidential Scholarship, Ingram Scholar, James E. Boyd
+      Award. Teaching assistant for undergraduate and graduate CS courses.
+
+community:
+  - title: North Central Washington Tech Alliance, Technology Advisory Board
+    dates: 2024 – Present
+    detail: >-
+      Advise on technology, programs, and policy for Central Washington's largest
+      technology organization and its local businesses and educators.
+  - title: Young Professionals of North Central Washington, Planning Committee
+    dates: 2024 – Present
+    detail: >-
+      Plan bi-monthly professional development events for 100+ members.

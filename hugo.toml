@@ -1,0 +1,46 @@
+baseURL = "https://nathanbeam.dev/"
+locale = "en-US"
+title = "Nathan Beam"
+enableRobotsTXT = true
+capitalizeListTitles = false
+
+[params]
+  description = "Staff Applied AI Engineer. I build production AI systems and the full-stack platforms underneath them."
+  role = "Staff Applied AI Engineer"
+  company = "Forward Financing"
+  location = "Atlanta, GA"
+  email = "nathan.w.beam@gmail.com"
+  github = "https://github.com/nathan-beam"
+  linkedin = "https://www.linkedin.com/in/nbeam/"
+
+[menus]
+  [[menus.main]]
+    name = "Experience"
+    pageRef = "/experience"
+    weight = 10
+  [[menus.main]]
+    name = "Writing"
+    pageRef = "/writing"
+    weight = 20
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  [permalinks.page]
+    writing = "/writing/:slug/"
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html", "rss"]
+  taxonomy = ["html"]
+  term = ["html"]
+
+[markup.highlight]
+  noClasses = false
+
+[services.rss]
+  limit = 20
+
+[minify]
+  minifyOutput = true

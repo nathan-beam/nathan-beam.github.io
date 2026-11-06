@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{- $headshot := resources.Get "images/headshot.png" }}
+{{- $small := $headshot.Resize "280x280 webp q92" }}
+{{- $size := math.Min 560 $headshot.Width | int }}
+{{- $large := $headshot.Resize (printf "%dx%d webp q92" $size $size) }}
+<section class="hero wrap">
+  <div class="hero__text">
+    <p class="eyebrow">{{ site.Params.role }} &middot; {{ site.Params.company }}</p>
+    <h1>{{ .Params.headline }}</h1>
+    <div class="lead">{{ .Content }}</div>
+    <p class="cta">
+      <a class="button" href="{{ (site.GetPage "/experience").RelPermalink }}">See my experience</a>
+      <a class="button button--ghost" href="mailto:{{ site.Params.email }}">Get in touch</a>
+    </p>
+  </div>
+  <img class="hero__photo" src="{{ $small.RelPermalink }}" srcset="{{ $small.RelPermalink }} 1x, {{ $large.RelPermalink }} 2x" width="280" height="280" alt="Portrait of Nathan Beam">
+</section>
+
+<section class="wrap section" aria-labelledby="focus">
+  <h2 id="focus" class="section__title">What I do</h2>
+  <div class="grid grid--3">
+    {{- range .Params.pillars }}
+    <article class="card">
+      <h3>{{ .title }}</h3>
+      <p>{{ .body }}</p>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+<section class="wrap section" aria-labelledby="impact">
+  <h2 id="impact" class="section__title">Results</h2>
+  <dl class="metrics">
+    {{- range .Params.metrics }}
+    <div class="metric">
+      <dt>{{ .label }}</dt>
+      <dd>{{ .value }}</dd>
+    </div>
+    {{- end }}
+  </dl>
+</section>
+
+{{- with .Params.work }}
+<section class="wrap section" aria-labelledby="work">
+  <h2 id="work" class="section__title">Selected work</h2>
+  <div class="work">
+    {{- range . }}
+    <article class="work__item">
+      <p class="work__meta">{{ .context }}</p>
+      <h3>{{ .title }}</h3>
+      <p>{{ .body }}</p>
+      <ul class="tags">{{ range .tags }}<li>{{ . }}</li>{{ end }}</ul>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+<section class="wrap section" aria-labelledby="writing">
+  <h2 id="writing" class="section__title">Writing</h2>
+  {{- partial "post-list.html" (first 3 (where site.RegularPages "Section" "writing")) }}
+</section>
+{{ end }}
